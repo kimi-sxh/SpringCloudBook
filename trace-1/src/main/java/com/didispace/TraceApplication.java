@@ -31,8 +31,14 @@ public class TraceApplication {
 
 	@RequestMapping(value = "/trace-1", method = RequestMethod.GET)
 	public String trace() {
-		logger.info("===<call trace-1>===");
-		return restTemplate().getForEntity("http://trace-2/trace-2", String.class).getBody();
+		logger.info("===<first call trace-2>===");
+		String result = restTemplate().getForEntity("http://trace-2/trace-2", String.class).getBody();
+		logger.info("===<first call trace-2 end>===");
+
+		logger.info("===<second call trace-2>===");
+		result = restTemplate().getForEntity("http://trace-2/trace-2", String.class).getBody();
+		logger.info("===<second call trace-2 end>===");
+		return result;
 	}
 
 	public static void main(String[] args) {

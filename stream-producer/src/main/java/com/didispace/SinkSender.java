@@ -24,7 +24,7 @@ import java.util.Date;
  * @create 2016/11/8.
  * @blog http://blog.didispace.com
  */
-//@EnableBinding(value = {SinkSender.SinkOutput.class})
+@EnableBinding(value = {SinkSender.SinkOutput.class})
 public class SinkSender {
 
     private static Logger logger = LoggerFactory.getLogger(HelloApplication.class);

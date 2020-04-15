@@ -13,6 +13,11 @@ public class ConsumerController {
     @Autowired
     RefactorHelloService refactorHelloService;
 
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello() {
+        return helloService.hello();
+    }
+
     @RequestMapping(value = "/feign-consumer", method = RequestMethod.GET)
     public String helloConsumer() {
         return helloService.hello();

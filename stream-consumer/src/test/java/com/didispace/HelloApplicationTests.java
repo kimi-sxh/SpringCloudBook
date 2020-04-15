@@ -24,13 +24,4 @@ public class HelloApplicationTests {
 		sinkSender.output().send(MessageBuilder.withPayload("From SinkSender").build());
 	}
 
-	public interface SinkSender {
-
-		String OUTPUT = "input";
-
-		@Output(SinkSender.OUTPUT)
-		MessageChannel output();
-
-	}
-
 }

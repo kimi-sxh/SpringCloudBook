@@ -1,6 +1,8 @@
 package com.didispace.web;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheKey;
+import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -65,7 +67,11 @@ public class HelloService {
         return result.toString();
     }
 
-    public String helloFallback() {
+
+    public String helloFallback(Throwable e) {
+        if(null != e) {
+            logger.error("降级失败：",e);
+        }
         return "error";
     }
 

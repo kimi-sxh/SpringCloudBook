@@ -20,6 +20,14 @@ public class Application {
 		return new AccessFilter();
 	}
 
+	/**
+	 * <b>概要：</b>:
+	 * 		定义路由匹配 参见7.2.2
+	 * <b>作者：</b>SUXH</br>
+	 * <b>日期：</b>2019/12/25 17:04 </br>
+	 * @param:
+	 * @return:
+	 */
 	@Bean
 	public PatternServiceRouteMapper serviceRouteMapper() {
 		return new PatternServiceRouteMapper(
